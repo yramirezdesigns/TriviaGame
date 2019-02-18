@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/css/style.css"></script>
+    <script src="assets/javascript/app.js"></script>
+    <link rel="stylesheet" href="assets/css/flipclock.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="assets/javascript/flipclock.js"></script>	
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>Totally Trivial Trivia!</h1>
+
+    <div id="startPage">
+        <button id="start">START</button>
+    </div>
+    <div id="myDIV">
+        <div id="questionPage">
+            <div> 
+                Time Remaining:
+                <!-- <span id="timer"></span> -->
+                <div class="clock" style="margin:2em;"></div>
+            </div>
+
+            <div>
+                    <ul>
+                            <li>
+                              <h3>Best couple in Marvel's X-Men?</h3>
+                              <input type="radio" name="question0" value="A">Gambit and Rouge<br>
+                              <input type="radio" name="question0" value="B">Jean Grey and Wolverine<br>
+                              <input type="radio" name="question0" value="C">Sabretooth and Wolverine<br>
+                              <input type="radio" name="question0" value="D">Storm and Forge<br>
+                            </li>
+                            <li>
+                              <h3>Best couple in DC's Batman?</h3>
+                              <input type="radio" name="question1" value="A">Spiderman and Mary Jane<br>
+                              <input type="radio" name="question1" value="B">Twoface and Poison Ivy<br>
+                              <input type="radio" name="question1" value="C">Joker and Harley Quinn<br>
+                              <input type="radio" name="question1" value="D">Riddler and Pinguin<br>
+                            </li>
+                            <li>
+                              <h3>Best couple in Marvel's Spiderman?</h3>
+                              <input type="radio" name="question2" value="A">Silver Sable and Kingpin<br>
+                              <input type="radio" name="question2" value="B">Spiderman and Mary Jane<br>
+                              <input type="radio" name="question2" value="C">Dr.Otto Octavius and May Parker<br>
+                              <input type="radio" name="question2" value="D">Venom and Felicia Hardy<br>
+                            </li>
+                          </ul>
+            </div>
+            
+            <div id="donePage">
+                <button id="done">DONE</button>
+            </div>
+        </div>
+
+        <div id="gameEndsPage">
+            <div>
+                Correct:<span id="totalCorrect"></span>
+            </div>
+            <div>
+                Incorrect:<span id="totalIncorrect"></span>
+            </div>
+            <div>
+                Unanswered:<span id="totalUnanswered"></span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
+
+
+      
+
+
+
