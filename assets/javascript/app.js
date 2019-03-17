@@ -25,31 +25,38 @@ $(document).ready(function(){
 
     $(start_el).click(function(){
         $(this).hide(); 
-        $(all_el).show();{
+        $(all_el).show();
           var clock;
           
-            clock = new FlipClock($('.clock'), 5, {
+            clock = new FlipClock($('.clock'), 30, {
               clockFace: 'Counter',
               autoStart: true,
               countdown: true
+              // onStart: function() {
+              //   console.log('clock started!');
+              // },
+              // onStop: function() {
+              //   console.log('clock stopped!');
+              // }
           });
-        }
+        setTimeout(clockEnds, 5000)
           });
 
           // Code not working .............
-        //   function clockEnds (){
-        //     if(clock ==-1);{
-        //     $(end_el).hide();
-        //     $(done_el).hide();
-        //     $(questions_el).hide();
-        //     $(end_el).show();{
-        //     win.text(getScore());
-        //     losses.text(getWrong());
-        //     unanswered.text(noAnswer());
-        //     return clockEnds;
-        //     }
-        //   }
-        // } 
+          function clockEnds (){
+            console.log('clock end')
+            // if(clock ==-1);{
+            $(end_el).hide();
+            $(done_el).hide();
+            $(questions_el).hide();
+            $(end_el).show();
+            win.text(getScore());
+            losses.text(getWrong());
+            unanswered.text(noAnswer());
+            return clockEnds;
+            
+          // }
+        } 
         
          
       
@@ -65,24 +72,33 @@ $(document).ready(function(){
           
             function getScore(){
               var score = 0;
-              for (var i=0; i<tot; i++)
+              for (var i=0; i<tot; i++) {
                 if(getCheckedValue("question"+i)===answers[i]) score += 1; 
+              }
               return score;
             }
             function getWrong(){
               var wrong = 0;
-              for (var j=0; j<tot; j++)
-                if (getCheckedValue("question"+j)!==answers[j]) wrong += 1; 
+              for (var j=0; j<tot; j++) {
+                const userResponse = getCheckedValue("question"+j);
+                if (userResponse !== undefined && userResponse !== answers[j]) {
+                  wrong += 1;
+                } 
+              }
               return wrong;
             }
 
             // Code not working .............
-            // function noAnswer(){
-            //   var none = 0;
-            //   for (var k=0; k<tot; k++)
-            //     if ((getCheckedValue("question"+k)!==answers[k]) && (getCheckedValue("question"+k)===answers[k])!==tot) none += 1;
-            //   return none;
-            // }
+            function noAnswer(){
+              var none = 0;
+              for (var k=0; k<tot; k++) {
+                const userResponse = getCheckedValue("question"+k);
+                if (userResponse === undefined) {
+                  none += 1;
+                } 
+              }
+              return none;
+            }
             
         
         $(end_el).hide();
@@ -91,7 +107,8 @@ $(document).ready(function(){
 $(done_el).click(function(){
   $(this).hide(); 
   $(questions_el).hide();
-  $(end_el).show();{
+  $(end_el).show();
+  {
     win.text(getScore());
     losses.text(getWrong());
     unanswered.text(noAnswer());
